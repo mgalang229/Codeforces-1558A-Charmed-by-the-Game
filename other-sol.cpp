@@ -7,11 +7,18 @@ void test_case() {
     set<int> s;
     int odd_pos = (a + b) / 2;
     int even_pos = (a + b - odd_pos);
+
+    // context:
+    // 0 = alice wins
+    // 1 = borys wins
+    // 0, 1, 0, 1, 0, 1, 0, ...
+    // 1, 0, 1, 0, 1, 0, 1, ...
+
     for (int i = 0; i <= odd_pos; i++) {
-        int a0 = i;
-        int a1 = a - i;
-        int b0 = odd_pos - a0;
-        int b1 = even_pos - a1;
+        int a0 = i; // win by alice through hold serves
+        int a1 = a - i; // win by alice through break serves
+        int b0 = odd_pos - a0; // win by borys through break serves
+        int b1 = even_pos - a1; // win by borys through hold serves
         if (a1 < 0 || b0 < 0 || b1 < 0) {
             continue;
         }
